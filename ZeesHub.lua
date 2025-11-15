@@ -175,7 +175,7 @@ hookfunction(require(game:GetService("ReplicatedStorage").Effect.Container.Death
 hookfunction(require(game:GetService("ReplicatedStorage").Effect.Container.Respawn), function() end)
 local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/zeesvn/ZeesBloxFruits/refs/heads/main/Config.lua"))()
 Window = Fluent:CreateWindow({
-    Title = "ZeesVN Hub (Diamond Version)",
+    Title = "ZeesVN Hub",
     SubTitle="Blox Fruit", 
     TabWidth=155, 
     Theme="Light",
@@ -2320,7 +2320,7 @@ Button.Parent = ScreenGui
 Button.Size = UDim2.new(0, 50, 0, 50)
 Button.Position = UDim2.new(0.015, 0, 0.02, 20)
 Button.BackgroundTransparency = 1
-Button.Image = "rbxassetid://138345689094456"
+Button.Image = "rbxassetid://79863412249252"
 local UICorner = Instance.new("UICorner")
 
 UICorner.CornerRadius = UDim.new(1, 0)
@@ -2364,7 +2364,7 @@ elseif getexecutorname then
 end
 if executorName then
     Tabs.Info:AddParagraph({
-        Title="Client đang sử dụng",
+        Title="Your Client",
         Content=executorName
     })
 end
@@ -3834,7 +3834,7 @@ local boss = Tabs.Main:AddSection("Fram Boss")
             end
         end
     end)
-    local Material = Tabs.Main:AddSection("MateriaList")
+    local Material = Tabs.Main:AddSection("Material List")
     if Sea1 then
         MaterialList={
           "Scrap Metal","Leather","Angel Wings","Magma Ore","Fish Tail"
@@ -3847,7 +3847,7 @@ local boss = Tabs.Main:AddSection("Fram Boss")
         }
         end
     local DropdownMaterial = Tabs.Main:AddDropdown("DropdownMaterial", {
-        Title="Select MateriaList",
+        Title="Select Material List",
         Description="",
         Values=MaterialList,
         Multi=false,
@@ -3858,7 +3858,7 @@ local boss = Tabs.Main:AddSection("Fram Boss")
         SelectMaterial=Value
     end)
     local ToggleMaterial = Tabs.Main:AddToggle("ToggleMaterial", {
-        Title="Auto Fram MateriaList",
+        Title="Auto Farm Material List",
         Description="", 
         Default=false })
     ToggleMaterial:OnChanged(function(Value)
@@ -4079,7 +4079,7 @@ local function createToggle(title, toggleKey, islands, islandName, notification)
             _G[toggleKey] = false
             if not notified then
                 Fluent:Notify({
-                    Title = "💎Diamond Hub",
+                    Title = "Zees Hub",
                     Content = notification,
                     Duration = 10
                 })
@@ -4671,7 +4671,7 @@ if Sea3 then
         end
         for _, v in pairs(game:GetService("Workspace").Map.MysticIsland:GetDescendants()) do
             if v:IsA("MeshPart") then
-                if v.MeshId=="rbxassetid://138345689094456" then
+                if v.MeshId=="rbxassetid://79863412249252" then
                     return v
                 end
             end
@@ -6454,21 +6454,21 @@ ToggleF:OnChanged(function(Value)
     end)
 Options.ToggleF:SetValue(true)
 local Usser = Tabs.Info:AddParagraph({
-    Title="Thông tin",
+    Title="Info",
     Content="\n"..
-        "Tên : "..game.Players.LocalPlayer.DisplayName.." (@"..game.Players.LocalPlayer.Name..")\n"..
-        "Cấp độ : "..game:GetService("Players").LocalPlayer.Data.Level.Value.."\n"..
+        "Name : "..game.Players.LocalPlayer.DisplayName.." (@"..game.Players.LocalPlayer.Name..")\n"..
+        "Level : "..game:GetService("Players").LocalPlayer.Data.Level.Value.."\n"..
         "Beli : "..game:GetService("Players").LocalPlayer.Data.Beli.Value.."\n"..
         "Fragments : "..game:GetService("Players").LocalPlayer.Data.Fragments.Value.."\n"..
         "Bounty : "..game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value.."\n"..
-        "Máu : "..game.Players.LocalPlayer.Character.Humanoid.Health.."/"..game.Players.LocalPlayer.Character.Humanoid.MaxHealth.."\n"..
-        "Năng lượng : "..game.Players.LocalPlayer.Character.Energy.Value.."/"..game.Players.LocalPlayer.Character.Energy.MaxValue.."\n"..
+        "HP : "..game.Players.LocalPlayer.Character.Humanoid.Health.."/"..game.Players.LocalPlayer.Character.Humanoid.MaxHealth.."\n"..
+        "Mana : "..game.Players.LocalPlayer.Character.Energy.Value.."/"..game.Players.LocalPlayer.Character.Energy.MaxValue.."\n"..
         "Tộc : "..game:GetService("Players").LocalPlayer.Data.Race.Value.."\n"..
-        "Trái : "..game:GetService("Players").LocalPlayer.Data.DevilFruit.Value.."\n"..
+        "Fruit : "..game:GetService("Players").LocalPlayer.Data.DevilFruit.Value.."\n"..
         ""
 })
 local Time = Tabs.Status:AddParagraph({
-    Title="Thời gian",
+    Title="Time",
     Content=""
 })
 local function UpdateLocalTime()
@@ -6497,7 +6497,7 @@ spawn(function()
     end
 end)
 local ServerTime = Tabs.Status:AddParagraph({
-    Title="Thời gian chơi server",
+    Title="Time In Server",
     Content=""
 })
 local function UpdateServerTime()
@@ -6663,7 +6663,7 @@ SelectedPly:OnChanged(function(Value)
     _G.SelectPly=Value
 end)
 Tabs.Player:AddButton({
-    Title="ReLoad Player",
+    Title="Reload Player",
     Description="",
     Callback=function()
         table.clear(Playerslist)
@@ -6710,7 +6710,7 @@ spawn(function()
     end)
   end
 end)
-local ToggleSpeedRun = Tabs.Player:AddToggle("ToggleSpeedRun", {Title = "Speed Run",Description = "", Default = true })
+local ToggleSpeedRun = Tabs.Player:AddToggle("ToggleSpeedRun", {Title = "Buff Speed",Description = "", Default = true })
 ToggleSpeedRun:OnChanged(function(Value)
     InfAbility = Value
     if Value == false then
@@ -7113,7 +7113,7 @@ Tabs.Teleport:AddButton({
         end
     })
 Tabs.Visual:AddButton({
-    Title="Visual",
+    Title="OKAY!",
     Description="",
     Callback=function()
         local plr = game:GetService("Players").LocalPlayer
@@ -7134,6 +7134,7 @@ Tabs.Visual:AddButton({
             end;
             return v130;
         end;
+        Notification.new("<Color=Yellow> BY ZEES \ KUDODZ!<Color=/>"):Display()
         Notification.new("<Color=Yellow>QUEST COMPLETED!<Color=/>"):Display()
         Notification.new("Earned<Color=Yellow>9,999,999,999,999 Exp.<Color=/>(+None)"):Display()
         Notification.new("Earned<Color=Green>$9,999,999,999,999<Color=/>"):Display()
@@ -8649,7 +8650,7 @@ Tabs.Misc:AddButton({
     end
 })
 local ToggleAntiBand = Tabs.Misc:AddToggle("ToggleAntiBand", {
-    Title="Anti Band",
+    Title="Antiban",
     Description="",
     Default=true
 })
@@ -8893,7 +8894,7 @@ spawn(function()
     end
 end)
 Tabs.Main1:AddButton({
-    Title="Telepor Dragon Dojo",
+    Title="Teleport Dragon Dojo",
     Description="",
     Callback=function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(5661.5322265625, 1013.0907592773438,-334.9649963378906))
@@ -9302,9 +9303,9 @@ local notificationCooldown = 10
 local currentTime = tick()
 if currentTime - lastNotificationTime >= notificationCooldown then
     game.StarterGui:SetCore("SendNotification", {
-        Title = "Zees Diamond Hub",
+        Title = "Zees Hub",
         Text = "Load Script Thành Công!",
-        Icon = "rbxthumb://type=Asset&id=138345689094456&w=150&h=150",
+        Icon = "rbxthumb://type=Asset&id=79863412249252&w=150&h=150",
         Duration = 1
     })
     lastNotificationTime = currentTime
